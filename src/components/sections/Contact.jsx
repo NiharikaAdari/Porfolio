@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -10,6 +10,14 @@ import {
   Button,
   Icon,
   SimpleGrid,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import {
@@ -17,6 +25,7 @@ import {
   FaLinkedin,
   FaGithub,
   FaFileAlt,
+  FaDownload,
 } from "react-icons/fa";
 import resumePdf from "../../data/NiharikaAdari_Resume.pdf";
 
@@ -57,6 +66,8 @@ const ContactItem = ({ icon, label, value, href, isExternal = true }) => (
 );
 
 const Contact = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  
   const contactInfo = [
     {
       icon: FaEnvelope,
@@ -142,10 +153,6 @@ const Contact = () => {
             textAlign="center"
           >
             <Button
-              as="a"
-              href={resumePdf}
-              target="_blank"
-              rel="noopener noreferrer"
               leftIcon={<Icon as={FaFileAlt} />}
               bg="teal.400"
               color="white"
@@ -159,10 +166,45 @@ const Contact = () => {
                 boxShadow: "xl",
               }}
               transition="all 0.2s"
-              download
+              onClick={onOpen}
             >
               View Resume
             </Button>
+
+            {/* Resume Preview Modal */}
+            <Modal isOpen={isOpen} onClose={onClose} size="4xl" isCentered>
+              <ModalOverlay bg="blackAlpha.600" />
+              <ModalContent maxH="90vh" overflow="auto">
+                <ModalHeader>Resume Preview</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody pb={6}>
+                  <iframe
+                    src={resumePdf}
+                    width="100%"
+                    height="600px"
+                    style={{ border: "none", borderRadius: "8px" }}
+                    title="Resume Preview"
+                  />
+                </ModalBody>
+                <ModalFooter>
+                  <Button
+                    as="a"
+                    href={resumePdf}
+                    download="NiharikaAdari_Resume.pdf"
+                    leftIcon={<Icon as={FaDownload} />}
+                    bg="teal.400"
+                    color="white"
+                    _hover={{ bg: "teal.500" }}
+                    mr={3}
+                  >
+                    Download
+                  </Button>
+                  <Button variant="ghost" onClick={onClose}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </MotionBox>
         </VStack>
       </Container>
