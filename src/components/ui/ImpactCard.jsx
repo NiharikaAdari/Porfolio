@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Heading,
@@ -6,6 +6,8 @@ import {
   VStack,
   Link,
   Icon,
+  Image,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
@@ -13,6 +15,8 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 const MotionBox = motion(Box);
 
 const ImpactCard = ({ impact }) => {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
   return (
     <MotionBox
       bg="teal.200"
@@ -39,19 +43,42 @@ const ImpactCard = ({ impact }) => {
           {impact.title}
         </Heading>
         
-        {/* Image placeholder */}
-        {impact.image && (
-          <Box
-            bg="gray.200"
-            borderRadius="md"
-            h="100px"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Text color="gray.500" fontSize="sm">
-              🖼️ Image
-            </Text>
+        {/* Image Gallery */}
+        {impact.images && impact.images.length > 0 && (
+          <Box>
+            <Image
+              src={impact.images[activeImageIndex]}
+              alt={`${impact.title} image ${activeImageIndex + 1}`}
+              borderRadius="md"
+              maxH="150px"
+              w="100%"
+              objectFit="cover"
+            />
+            {impact.images.length > 1 && (
+              <SimpleGrid columns={4} spacing={2} mt={2}>
+                {impact.images.map((img, idx) => (
+                  <Box
+                    key={idx}
+                    as="button"
+                    cursor="pointer"
+                    borderRadius="md"
+                    overflow="hidden"
+                    border={activeImageIndex === idx ? "2px solid teal" : "1px solid gray"}
+                    p={0}
+                    onClick={() => setActiveImageIndex(idx)}
+                    _hover={{ borderColor: "teal" }}
+                  >
+                    <Image
+                      src={img}
+                      alt={`thumbnail ${idx + 1}`}
+                      h="60px"
+                      w="100%"
+                      objectFit="cover"
+                    />
+                  </Box>
+                ))}
+              </SimpleGrid>
+            )}
           </Box>
         )}
         
@@ -68,7 +95,7 @@ const ImpactCard = ({ impact }) => {
             fontWeight="medium"
             _hover={{ color: "teal.800", textDecor: "underline" }}
           >
-            Learn More <Icon as={FaExternalLinkAlt} ml={1} boxSize={3} />
+            {impact.linkLabel || "Learn More"} <Icon as={FaExternalLinkAlt} ml={1} boxSize={3} />
           </Link>
         )}
       </VStack>

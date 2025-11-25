@@ -1,44 +1,39 @@
 export const impacts = [
   {
     id: 1,
-    title: "Open Source Contribution",
-    description: "Contributed to major open source projects, improving code quality and adding new features that benefit thousands of developers worldwide.",
-    image: null,
-    link: "https://github.com/username"
+    title: "Vice President – Women in Computer Science (WiCSE)",
+    description: "Led initiatives that expanded the club from 250 to 360+ members, organized professional and technical workshops, mentoring circles, resume reviews, and outreach programs. Strengthened community engagement and created opportunities for underrepresented students in CS.",
+    images: [
+      require("./WICSE/flier.png"),
+      require("./WICSE/workshop.png"),
+      require("./WICSE/professionaldevworkshop.png"),
+      require("./WICSE/tabling.png")
+    ],
+    link: null,
+    linkLabel: "Workshop Slides"
   },
   {
     id: 2,
-    title: "Hackathon Winner",
-    description: "Won first place at a regional hackathon by developing an innovative solution for environmental sustainability tracking.",
-    image: null,
-    link: null
+    title: "Undergraduate Research – USF SEES Lab (Specification Mining)",
+    description: "Developed algorithms that accelerated extraction of sequential patterns from distributed system traces by 14×. Built tooling that identified message-flow specifications, giving researchers deeper insights into system behavior and communication patterns.",
+    images: [],
+    link: null,
+    linkLabel: null
   },
   {
     id: 3,
-    title: "Technical Blog Author",
-    description: "Published articles on software development best practices, reaching over 10,000 readers monthly and helping developers grow their skills.",
-    image: null,
-    link: "https://blog.example.com"
+    title: "Teaching Assistant – Data Structures",
+    description: "Provided academic support to 100+ students by clarifying core concepts in C++, recursion, trees, and algorithmic thinking. Assisted with grading, held office hours, and improved student comprehension through personalized guidance.",
+    images: [],
+    link: null,
+    linkLabel: null
   },
   {
     id: 4,
-    title: "Mentorship Program",
-    description: "Mentored junior developers and students, helping them break into the tech industry and advance their careers.",
-    image: null,
-    link: null
-  },
-  {
-    id: 5,
-    title: "Research Publication",
-    description: "Co-authored a research paper on machine learning optimization techniques, published in a peer-reviewed journal.",
-    image: null,
-    link: "https://arxiv.org"
-  },
-  {
-    id: 6,
-    title: "Community Leadership",
-    description: "Founded and led a local tech meetup group, organizing monthly events and workshops for developers of all skill levels.",
-    image: null,
-    link: null
+    title: "Impact at Citibank – Cloud Migration & Systems Engineering",
+    description: "Core contributor to Citi's global Sanctions Risk Management cloud migration. Successfully migrated 10/20 production microservices to AWS EKS, handled Aurora PostgreSQL migration of 4,200+ database objects, and resolved 65% of all migration defects. Designed an outbox architecture adopted into production, improving reliability and reducing failure points.",
+    images: [],
+    link: null,
+    linkLabel: null
   }
 ];
