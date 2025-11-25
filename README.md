@@ -54,7 +54,6 @@ Porfolio/
 │   │   ├── ui/
 │   │   │   ├── AnimatedBackground.jsx
 │   │   │   ├── AnimatedBackground.css
-│   │   │   ├── CustomButton.jsx
 │   │   │   ├── ProjectCard.jsx
 │   │   │   ├── ProjectModal.jsx
 │   │   │   ├── SkillCard.jsx
