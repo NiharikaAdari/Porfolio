@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaArrowDown } from "react-icons/fa";
+import headshotImage from "../../data/Headshot.jpg";
 
 const MotionBox = motion(Box);
 const MotionVStack = motion(VStack);
@@ -41,7 +42,8 @@ const Hero = () => {
           >
             <Avatar
               size="2xl"
-              name="Developer"
+              src={headshotImage}
+              name="Niharika Adari"
               bg="teal.400"
               color="white"
               boxShadow="dark-lg"
@@ -79,7 +81,7 @@ const Hero = () => {
                 color="gray.800"
                 mb={4}
               >
-                Your Name
+                Niharika Adari
               </Heading>
               <Text
                 fontSize={{ base: "lg", md: "xl" }}
@@ -87,13 +89,12 @@ const Hero = () => {
                 fontWeight="semibold"
                 mb={4}
               >
-                Software Developer | CS Enthusiast
+                Full-Stack Software Developer | DS Enthusiast
               </Text>
               <Text fontSize="md" color="gray.600" lineHeight="tall">
                 Passionate about building innovative solutions and creating
                 impactful software that makes a difference. Specializing in
-                full-stack development, machine learning, and cloud
-                technologies.
+                full-stack development, cloud technologies, and LLMs.
               </Text>
             </Box>
 

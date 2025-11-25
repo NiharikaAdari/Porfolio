@@ -18,6 +18,7 @@ import {
   FaGithub,
   FaFileAlt,
 } from "react-icons/fa";
+import resumePdf from "../../data/NiharikaAdari_Resume.pdf";
 
 const MotionBox = motion(Box);
 
@@ -60,20 +61,20 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: "Email",
-      value: "email@example.com",
-      href: "mailto:email@example.com",
+      value: "adari.niharika13@gmail.com",
+      href: "mailto:adari.niharika13@gmail.com",
     },
     {
       icon: FaLinkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/username",
-      href: "https://linkedin.com/in/username",
+      value: "linkedin.com/in/niharika-adari",
+      href: "https://www.linkedin.com/in/niharika-adari-9b5519253/?profileId=ACoAAD6L_1kB4JOOOivUFQnxgcKZLeiaXrjlK84",
     },
     {
       icon: FaGithub,
       label: "GitHub",
-      value: "github.com/username",
-      href: "https://github.com/username",
+      value: "github.com/NiharikaAdari",
+      href: "https://github.com/NiharikaAdari",
     },
   ];
 
@@ -142,8 +143,9 @@ const Contact = () => {
           >
             <Button
               as="a"
-              href="#"
+              href={resumePdf}
               target="_blank"
+              rel="noopener noreferrer"
               leftIcon={<Icon as={FaFileAlt} />}
               bg="teal.400"
               color="white"
@@ -157,6 +159,7 @@ const Contact = () => {
                 boxShadow: "xl",
               }}
               transition="all 0.2s"
+              download
             >
               View Resume
             </Button>
