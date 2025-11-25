@@ -9,9 +9,10 @@ import {
   Icon,
   Wrap,
   WrapItem,
+  Image,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaLinkedin } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
@@ -36,6 +37,31 @@ const ProjectCard = ({ project, onClick }) => {
       _hover={{ bg: "cyan.400" }}
     >
       <VStack align="stretch" spacing={4} flex={1}>
+        {/* Image Preview */}
+        {(project.images?.length > 0 || project.video) && (
+          <Box
+            bg="gray.200"
+            borderRadius="lg"
+            overflow="hidden"
+            h="120px"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            {project.images?.length > 0 ? (
+              <Image
+                src={project.images[0]}
+                alt={project.title}
+                h="100%"
+                w="100%"
+                objectFit="cover"
+              />
+            ) : (
+              <Text fontSize="2xl">🎬</Text>
+            )}
+          </Box>
+        )}
+
         <Heading
           size="md"
           bgGradient="linear(to-b, cyan.500, gray.800)"
@@ -80,8 +106,8 @@ const ProjectCard = ({ project, onClick }) => {
           )}
           {project.liveLink && (
             <Icon 
-              as={FaExternalLinkAlt} 
-              boxSize={4} 
+              as={FaLinkedin} 
+              boxSize={5} 
               color="gray.700" 
               _hover={{ color: "gray.900" }}
             />

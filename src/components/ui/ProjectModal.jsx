@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -18,10 +18,13 @@ import {
   Icon,
   Wrap,
   WrapItem,
+  Image,
+  SimpleGrid,
 } from "@chakra-ui/react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaLinkedin } from "react-icons/fa";
 
 const ProjectModal = ({ isOpen, onClose, project }) => {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   if (!project) return null;
 
   return (
@@ -45,19 +48,70 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
         
         <ModalBody>
           <VStack align="stretch" spacing={5}>
-            {/* Project Image/Video Placeholder */}
-            <Box
-              bg="gray.200"
-              borderRadius="lg"
-              h="200px"
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Text color="gray.500" fontSize="lg">
-                {project.video ? "🎬 Video Demo" : "🖼️ Project Preview"}
-              </Text>
-            </Box>
+            {/* Video Demo */}
+            {project.video && (
+              <Box borderRadius="lg" overflow="hidden" boxShadow="md">
+                <video
+                  src={project.video}
+                  controls
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    maxHeight: '300px',
+                  }}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </Box>
+            )}
+
+            {/* Images Gallery */}
+            {project.images && project.images.length > 0 && (
+              <Box>
+                <Box
+                  bg="gray.100"
+                  borderRadius="lg"
+                  overflow="hidden"
+                  mb={3}
+                  maxH="300px"
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                >
+                  <Image
+                    src={project.images[activeImageIndex]}
+                    alt={`Project preview ${activeImageIndex + 1}`}
+                    maxH="300px"
+                    objectFit="cover"
+                  />
+                </Box>
+                {project.images.length > 1 && (
+                  <SimpleGrid columns={6} spacing={2} mb={3}>
+                    {project.images.map((image, index) => (
+                      <Box
+                        key={index}
+                        cursor="pointer"
+                        borderRadius="md"
+                        overflow="hidden"
+                        border={activeImageIndex === index ? '3px solid teal' : '1px solid gray'}
+                        onClick={() => setActiveImageIndex(index)}
+                        opacity={activeImageIndex === index ? 1 : 0.6}
+                        _hover={{ opacity: 1 }}
+                        h="50px"
+                      >
+                        <Image
+                          src={image}
+                          alt={`Thumbnail ${index + 1}`}
+                          h="100%"
+                          w="100%"
+                          objectFit="cover"
+                        />
+                      </Box>
+                    ))}
+                  </SimpleGrid>
+                )}
+              </Box>
+            )}
 
             <Divider />
 
@@ -99,10 +153,10 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
 
             {/* Links */}
             <Box>
-              <Text fontWeight="bold" color="teal.600" mb={2}>
+              <Text fontWeight="bold" color="teal.600" mb={3}>
                 Links
               </Text>
-              <HStack spacing={4}>
+              <HStack spacing={4} wrap="wrap">
                 {project.githubLink && (
                   <Link 
                     href={project.githubLink} 
@@ -126,12 +180,14 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
                     _hover={{ textDecor: "none" }}
                   >
                     <Button
-                      leftIcon={<Icon as={FaExternalLinkAlt} />}
-                      colorScheme="teal"
+                      leftIcon={<Icon as={FaLinkedin} />}
+                      bg="#0A66C2"
+                      color="white"
                       variant="solid"
                       size="sm"
+                      _hover={{ bg: "#084A96" }}
                     >
-                      Live Demo
+                      LinkedIn
                     </Button>
                   </Link>
                 )}
