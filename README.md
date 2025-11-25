@@ -28,27 +28,22 @@ A modern, responsive portfolio website built with React and ChakraUI, inspired b
 
 ### Installation
 
-1. Navigate to the portfolio directory:
-   ```bash
-   cd portfolio
-   ```
-
-2. Install dependencies:
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Start the development server:
+2. Start the development server:
    ```bash
    npm start
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Project Structure
 
 ```
-portfolio/
+Porfolio/
 ├── public/
 │   └── index.html
 ├── src/
@@ -59,7 +54,6 @@ portfolio/
 │   │   ├── ui/
 │   │   │   ├── AnimatedBackground.jsx
 │   │   │   ├── AnimatedBackground.css
-│   │   │   ├── CustomButton.jsx
 │   │   │   ├── ProjectCard.jsx
 │   │   │   ├── ProjectModal.jsx
 │   │   │   ├── SkillCard.jsx
@@ -84,7 +78,8 @@ portfolio/
 │   ├── App.jsx
 │   └── index.js
 ├── package.json
-└── README.md
+├── README.md
+└── studyKeetApplication/
 ```
 
 ## Customization
