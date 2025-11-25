@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, VStack, HStack, Tag, Icon } from "@chakra-ui/react";
+import { Box, Text, VStack, HStack, Tag, Icon, Wrap, WrapItem } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 const MotionBox = motion(Box);
@@ -39,21 +39,21 @@ const SkillCard = ({ category, skills, colorScheme, icon }) => {
           </Text>
         </HStack>
         
-        <HStack wrap="wrap" spacing={2}>
+        <Wrap spacing={2}>
           {skills.map((skill, index) => (
-            <Tag
-              key={index}
-              size="md"
-              colorScheme={colorScheme}
-              borderRadius="full"
-              px={3}
-              py={1}
-              m={1}
-            >
-              {skill}
-            </Tag>
+            <WrapItem key={index}>
+              <Tag
+                size="md"
+                colorScheme={colorScheme}
+                borderRadius="full"
+                px={3}
+                py={1}
+              >
+                {skill}
+              </Tag>
+            </WrapItem>
           ))}
-        </HStack>
+        </Wrap>
       </VStack>
     </MotionBox>
   );

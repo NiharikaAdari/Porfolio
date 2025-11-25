@@ -16,6 +16,8 @@ import {
   Box,
   Divider,
   Icon,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -76,20 +78,21 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
               <Text fontWeight="bold" color="teal.600" mb={2}>
                 Technologies Used
               </Text>
-              <HStack wrap="wrap" spacing={2}>
+              <Wrap spacing={2}>
                 {project.skills.map((skill, index) => (
-                  <Tag
-                    key={index}
-                    size="md"
-                    colorScheme="teal"
-                    borderRadius="full"
-                    px={3}
-                    py={1}
-                  >
-                    {skill}
-                  </Tag>
+                  <WrapItem key={index}>
+                    <Tag
+                      size="md"
+                      colorScheme="teal"
+                      borderRadius="full"
+                      px={3}
+                      py={1}
+                    >
+                      {skill}
+                    </Tag>
+                  </WrapItem>
                 ))}
-              </HStack>
+              </Wrap>
             </Box>
 
             <Divider />

@@ -3,10 +3,12 @@ import {
   Box,
   Heading,
   Text,
-  HStack,
   Tag,
   VStack,
+  HStack,
   Icon,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
@@ -46,23 +48,26 @@ const ProjectCard = ({ project, onClick }) => {
           {project.description}
         </Text>
         
-        <HStack wrap="wrap" spacing={2}>
+        <Wrap spacing={2}>
           {project.skills.slice(0, 3).map((skill, index) => (
-            <Tag 
-              key={index} 
-              size="sm" 
-              colorScheme="teal" 
-              borderRadius="full"
-            >
-              {skill}
-            </Tag>
+            <WrapItem key={index}>
+              <Tag 
+                size="sm" 
+                colorScheme="teal" 
+                borderRadius="full"
+              >
+                {skill}
+              </Tag>
+            </WrapItem>
           ))}
           {project.skills.length > 3 && (
-            <Tag size="sm" colorScheme="gray" borderRadius="full">
-              +{project.skills.length - 3}
-            </Tag>
+            <WrapItem>
+              <Tag size="sm" colorScheme="gray" borderRadius="full">
+                +{project.skills.length - 3}
+              </Tag>
+            </WrapItem>
           )}
-        </HStack>
+        </Wrap>
         
         <HStack spacing={4} pt={2}>
           {project.githubLink && (
