@@ -8,6 +8,11 @@ import {
   Icon,
   Image,
   SimpleGrid,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
@@ -16,6 +21,7 @@ const MotionBox = motion(Box);
 
 const ImpactCard = ({ impact }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <MotionBox
@@ -53,6 +59,9 @@ const ImpactCard = ({ impact }) => {
               maxH="150px"
               w="100%"
               objectFit="cover"
+              cursor="pointer"
+              onClick={onOpen}
+              _hover={{ opacity: 0.8 }}
             />
             {impact.images.length > 1 && (
               <SimpleGrid columns={4} spacing={2} mt={2}>
@@ -99,6 +108,23 @@ const ImpactCard = ({ impact }) => {
           </Link>
         )}
       </VStack>
+
+      {/* Image Preview Modal */}
+      <Modal isOpen={isOpen} onClose={onClose} size="2xl" isCentered>
+        <ModalOverlay bg="blackAlpha.600" />
+        <ModalContent bg="white" borderRadius="lg" maxH="90vh" overflow="auto">
+          <ModalCloseButton />
+          <Box p={6} display="flex" justifyContent="center" alignItems="center">
+            <Image
+              src={impact.images[activeImageIndex]}
+              alt={`${impact.title} full preview`}
+              maxW="100%"
+              maxH="80vh"
+              objectFit="contain"
+            />
+          </Box>
+        </ModalContent>
+      </Modal>
     </MotionBox>
   );
 };
