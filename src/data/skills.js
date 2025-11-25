@@ -1,38 +1,50 @@
 export const skills = {
   "Programming Languages": [
-    "JavaScript",
     "Python",
+    "JavaScript/TypeScript",
     "Java",
-    "TypeScript",
-    "Go",
-    "C++",
-    "SQL"
+    "C/C++",
+    "SQL",
+    "HTML/CSS",
+    "R"
   ],
   "Libraries/Frameworks": [
     "React",
     "Node.js",
-    "Django",
     "Express",
+    "Flask",
+    "Electron",
     "Spring Boot",
-    "Vue.js",
-    "FastAPI"
+    "FastAPI",
+    "Keras",
+    "PyTorch",
+    "Scikit-Learn",
+    "Pandas",
+    "NumPy"
   ],
   "Tools/Platforms": [
     "Git",
     "Docker",
-    "AWS",
+    "AWS (EKS, Aurora PostgreSQL)",
     "Kubernetes",
-    "Linux",
-    "VS Code",
-    "Postman"
+    "Postman",     
+    "PostgreSQL",
+    "OpenShift",
+    "Maven",
+    "Selenium",
+    "Cucumber BDD"
   ],
-  "Data Science": [
-    "Pandas",
-    "NumPy",
-    "TensorFlow",
-    "Scikit-learn",
-    "Matplotlib",
-    "Jupyter",
-    "PyTorch"
+  "Data Science & AI": [
+    "Deep Learning",
+    "CNNs",
+    "RAG",
+    "LLMs",
+    "Prompt Engineering",
+    "Recommender Systems",
+    "TF-IDF",
+    "Cosine Similarity",
+    "Exploratory Data Analysis (EDA)",
+    "Data Cleaning",
+    "Model Deployment"
   ]
 };
