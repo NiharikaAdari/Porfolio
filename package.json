@@ -1,5 +1,6 @@
 {
   "name": "portfolio",
+  "homepage": "https://niharikaadari.github.io/Porfolio",
   "version": "1.0.0",
   "private": true,
   "description": "A modern, responsive CS portfolio website using React and ChakraUI",
