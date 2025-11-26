@@ -128,7 +128,7 @@ const Hero = () => {
             </Button>
           </MotionVStack>
         </HStack>
-          </Container>
+        </Container>
         </Box>
       </Box>
     </Box>

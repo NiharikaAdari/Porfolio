@@ -89,7 +89,7 @@ const ProjectsGallery = () => {
             ))}
           </SimpleGrid>
         </VStack>
-      </Container>
+        </Container>
 
       <ProjectModal
         isOpen={isOpen}
