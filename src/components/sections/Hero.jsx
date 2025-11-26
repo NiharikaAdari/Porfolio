@@ -32,12 +32,17 @@ const Hero = () => {
   const scrollToAbout = () => {
     const element = document.querySelector("#about");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
-    <Box id="hero" minH="80vh" display="flex" alignItems="center" justifyContent="center" py={20} mt={16}>
+    <Box id="hero" minH="80vh" display="flex" alignItems="center" justifyContent="center"  pt={5} pb={5}>
       <Box bg="teal.300" borderRadius={36} p={4} maxW="100%" display="flex" justifyContent="center">
         <Box
           bg="gray.800"
