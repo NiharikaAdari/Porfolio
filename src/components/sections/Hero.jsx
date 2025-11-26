@@ -27,16 +27,17 @@ const Hero = () => {
 
   return (
     <Box id="hero" minH="80vh" display="flex" alignItems="center" justifyContent="center" py={20}>
-      <Box
-        bg="gray.800"
-        borderRadius={30}
-        boxShadow="dark-lg"
-        p={12}
-        maxW="6xl"
-        w="100%"
-        mx={6}
-      >
-        <Container maxW="6xl">
+      <Box bg="teal.300" borderRadius={36} p={4} maxW="100%" display="flex" justifyContent="center">
+        <Box
+          bg="gray.800"
+          borderRadius={30}
+          boxShadow="dark-lg"
+          p={12}
+          maxW="6xl"
+          w="100%"
+          border="2px solid rgba(255,255,255,0.9)"
+        >
+          <Container maxW="6xl">
         <HStack
           spacing={{ base: 8, lg: 16 }}
           flexDirection={{ base: "column", lg: "row" }}
@@ -58,6 +59,8 @@ const Hero = () => {
               boxShadow="dark-lg"
               w={{ base: "150px", md: "200px" }}
               h={{ base: "150px", md: "200px" }}
+              border="4px solid teal"
+
             />
           </MotionBox>
 
@@ -125,7 +128,8 @@ const Hero = () => {
             </Button>
           </MotionVStack>
         </HStack>
-      </Container>
+          </Container>
+        </Box>
       </Box>
     </Box>
   );
