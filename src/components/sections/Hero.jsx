@@ -9,15 +9,26 @@ import {
   Avatar,
   Button,
   Icon,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaFileAlt, FaDownload } from "react-icons/fa";
 import headshotImage from "../../data/Headshot.jpg";
+import resumePdf from "../../data/NiharikaAdari_Resume.pdf";
 
 const MotionBox = motion(Box);
 const MotionVStack = motion(VStack);
 
 const Hero = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const scrollToAbout = () => {
     const element = document.querySelector("#about");
     if (element) {
@@ -110,22 +121,76 @@ const Hero = () => {
               </Text>
             </Box>
 
-            <Button
-              onClick={scrollToAbout}
-              bg="teal.400"
-              color="white"
-              size="lg"
-              borderRadius="full"
-              boxShadow="lg"
-              rightIcon={<Icon as={FaArrowDown} />}
-              _hover={{
-                bg: "teal.500",
-                transform: "translateY(2px)",
-              }}
-              transition="all 0.2s"
-            >
-              Learn More
-            </Button>
+            <HStack spacing={4}>
+              <Button
+                onClick={scrollToAbout}
+                bg="teal.400"
+                color="white"
+                size="lg"
+                borderRadius="full"
+                boxShadow="lg"
+                rightIcon={<Icon as={FaArrowDown} />}
+                _hover={{
+                  bg: "teal.500",
+                  transform: "translateY(2px)",
+                }}
+                transition="all 0.2s"
+              >
+                Learn More
+              </Button>
+
+              <Button
+                leftIcon={<Icon as={FaFileAlt} />}
+                bg="teal.400"
+                color="white"
+                size="lg"
+                borderRadius="full"
+                boxShadow="lg"
+                _hover={{
+                  bg: "teal.500",
+                  transform: "translateY(2px)",
+                }}
+                transition="all 0.2s"
+                onClick={onOpen}
+              >
+                View Resume
+              </Button>
+            </HStack>
+
+            {/* Resume Preview Modal */}
+            <Modal isOpen={isOpen} onClose={onClose} size="4xl" isCentered>
+              <ModalOverlay bg="blackAlpha.600" />
+              <ModalContent maxH="90vh" overflow="auto">
+                <ModalHeader>Resume Preview</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody pb={6}>
+                  <iframe
+                    src={resumePdf}
+                    width="100%"
+                    height="600px"
+                    style={{ border: "none", borderRadius: "8px" }}
+                    title="Resume Preview"
+                  />
+                </ModalBody>
+                <ModalFooter>
+                  <Button
+                    as="a"
+                    href={resumePdf}
+                    download="NiharikaAdari_Resume.pdf"
+                    leftIcon={<Icon as={FaDownload} />}
+                    bg="teal.400"
+                    color="white"
+                    _hover={{ bg: "teal.500" }}
+                    mr={3}
+                  >
+                    Download
+                  </Button>
+                  <Button variant="ghost" onClick={onClose}>
+                    Close
+                  </Button>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </MotionVStack>
         </HStack>
         </Container>
