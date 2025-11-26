@@ -18,7 +18,7 @@ const categoryConfig = {
   "Programming Languages": { colorScheme: "teal", icon: FaCode },
   "Libraries/Frameworks": { colorScheme: "cyan", icon: FaLayerGroup },
   "Tools/Platforms": { colorScheme: "green", icon: FaTools },
-  "Data Science": { colorScheme: "yellow", icon: FaChartBar },
+  "Data Science & AI": { colorScheme: "teal", icon: FaChartBar },
 };
 
 const TechnicalSkills = () => {
