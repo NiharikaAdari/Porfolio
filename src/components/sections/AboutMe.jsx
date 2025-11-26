@@ -95,7 +95,7 @@ const AboutMe = () => {
                   bg={colors[index]}
                   borderRadius={30}
                   p={8}
-                  boxShadow="5px 5px 10px gray"
+                  boxShadow="0 10px 30px rgba(0,0,0,0.6), 0 0 18px rgba(255,255,255,0.02)"
                   minH="200px"
                   _hover={{
                     transform: "translateY(-5px)",

@@ -42,11 +42,11 @@ const ContactItem = ({ icon, label, value, href, isExternal = true }) => (
       bg="cyan.300"
       borderRadius={30}
       p={6}
-      boxShadow="5px 5px 10px gray"
+      boxShadow="0 10px 30px rgba(0,0,0,0.6), 0 0 18px rgba(255,255,255,0.02)"
       _hover={{
         bg: "cyan.400",
         transform: "translateY(-5px)",
-        boxShadow: "8px 8px 15px rgba(0, 0, 0, 0.3)",
+        boxShadow: "0 18px 36px rgba(0,0,0,0.7)",
       }}
       transition="all 0.3s"
     >

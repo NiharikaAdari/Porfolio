@@ -22,12 +22,12 @@ const ProjectCard = ({ project, onClick }) => {
       bg="cyan.300"
       borderRadius={30}
       p={6}
-      boxShadow="5px 5px 10px gray"
+      boxShadow="0 10px 30px rgba(0,0,0,0.6), 0 0 18px rgba(255,255,255,0.02)"
       cursor="pointer"
       onClick={() => onClick(project)}
       whileHover={{ 
         scale: 1.03, 
-        boxShadow: "8px 8px 15px rgba(0, 0, 0, 0.3)" 
+        boxShadow: "0 18px 36px rgba(0,0,0,0.7)" 
       }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2 }}
