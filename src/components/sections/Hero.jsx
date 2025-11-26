@@ -26,8 +26,17 @@ const Hero = () => {
   };
 
   return (
-    <Box id="hero" minH="80vh" display="flex" alignItems="center" py={20}>
-      <Container maxW="6xl">
+    <Box id="hero" minH="80vh" display="flex" alignItems="center" justifyContent="center" py={20}>
+      <Box
+        bg="gray.800"
+        borderRadius={30}
+        boxShadow="dark-lg"
+        p={12}
+        maxW="6xl"
+        w="100%"
+        mx={6}
+      >
+        <Container maxW="6xl">
         <HStack
           spacing={{ base: 8, lg: 16 }}
           flexDirection={{ base: "column", lg: "row" }}
@@ -117,6 +126,7 @@ const Hero = () => {
           </MotionVStack>
         </HStack>
       </Container>
+      </Box>
     </Box>
   );
 };

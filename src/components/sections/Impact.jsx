@@ -15,8 +15,17 @@ const MotionBox = motion(Box);
 
 const Impact = () => {
   return (
-    <Box id="impact" py={20}>
-      <Container maxW="6xl">
+    <Box id="impact" py={20} display="flex" justifyContent="center" alignItems="center">
+      <Box
+        bg="gray.800"
+        borderRadius={30}
+        boxShadow="dark-lg"
+        p={12}
+        maxW="6xl"
+        w="100%"
+        mx={6}
+      >
+        <Container maxW="6xl">
         <VStack spacing={12} align="stretch">
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
@@ -67,6 +76,7 @@ const Impact = () => {
           </SimpleGrid>
         </VStack>
       </Container>
+      </Box>
     </Box>
   );
 };

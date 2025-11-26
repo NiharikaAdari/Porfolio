@@ -12,6 +12,8 @@ import { motion } from "framer-motion";
 const MotionBox = motion(Box);
 
 const AboutMe = () => {
+  const colors = ["teal.200", "cyan.200", "green.200", "teal.200"];
+  
   const aboutCards = [
     {
       title: "🎓 Education",
@@ -36,8 +38,17 @@ const AboutMe = () => {
   ];
 
   return (
-    <Box id="about" py={20}>
-      <Container maxW="6xl">
+    <Box id="about" py={20} display="flex" justifyContent="center" alignItems="center">
+      <Box
+        bg="gray.800"
+        borderRadius={30}
+        boxShadow="dark-lg"
+        p={12}
+        maxW="6xl"
+        w="100%"
+        mx={6}
+      >
+        <Container maxW="6xl">
         <VStack spacing={12} align="stretch">
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
@@ -81,7 +92,7 @@ const AboutMe = () => {
                 viewport={{ once: true }}
               >
                 <Box
-                  bg={index % 2 === 0 ? "cyan.300" : "teal.200"}
+                  bg={colors[index]}
                   borderRadius={30}
                   p={8}
                   boxShadow="5px 5px 10px gray"
@@ -110,6 +121,7 @@ const AboutMe = () => {
           </SimpleGrid>
         </VStack>
       </Container>
+      </Box>
     </Box>
   );
 };
