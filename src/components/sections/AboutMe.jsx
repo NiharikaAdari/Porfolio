@@ -38,7 +38,7 @@ const AboutMe = () => {
   ];
 
   return (
-    <Box id="about" py={20} display="flex" justifyContent="center" alignItems="center">
+    <Box id="about" py={20} display="flex" justifyContent="center" alignItems="center" pt={5} pb={5}>
       <Box bg="teal.300" borderRadius={36} p={4} maxW="100%" display="flex" justifyContent="center">
         <Box
           bg="gray.800"

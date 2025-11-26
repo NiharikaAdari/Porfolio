@@ -26,7 +26,7 @@ const Hero = () => {
   };
 
   return (
-    <Box id="hero" minH="80vh" display="flex" alignItems="center" justifyContent="center" py={20}>
+    <Box id="hero" minH="80vh" display="flex" alignItems="center" justifyContent="center" py={20} mt={16}>
       <Box bg="teal.300" borderRadius={36} p={4} maxW="100%" display="flex" justifyContent="center">
         <Box
           bg="gray.800"
@@ -59,7 +59,7 @@ const Hero = () => {
               boxShadow="dark-lg"
               w={{ base: "150px", md: "200px" }}
               h={{ base: "150px", md: "200px" }}
-              border="4px solid teal"
+              border="4px solid cyan"
 
             />
           </MotionBox>
