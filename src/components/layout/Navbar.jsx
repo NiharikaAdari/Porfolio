@@ -93,7 +93,7 @@ const Navbar = () => {
           cursor="pointer"
           onClick={() => scrollToSection("#hero")}
         >
-          Portfolio
+          Niharika Adari
         </Text>
         
         <Spacer />
