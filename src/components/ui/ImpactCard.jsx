@@ -4,6 +4,7 @@ import {
   Heading,
   Text,
   VStack,
+  HStack,
   Link,
   Icon,
   Image,
@@ -95,7 +96,23 @@ const ImpactCard = ({ impact }) => {
           {impact.description}
         </Text>
         
-        {impact.link && (
+        {impact.links && impact.links.length > 0 ? (
+          <HStack spacing={3} wrap="wrap">
+            {impact.links.map((linkItem, idx) => (
+              <Link 
+                key={idx}
+                href={linkItem.url} 
+                isExternal 
+                color="teal.600"
+                fontSize="sm"
+                fontWeight="medium"
+                _hover={{ color: "teal.800", textDecor: "underline" }}
+              >
+                {linkItem.label} <Icon as={FaExternalLinkAlt} ml={1} boxSize={3} />
+              </Link>
+            ))}
+          </HStack>
+        ) : impact.link && (
           <Link 
             href={impact.link} 
             isExternal 

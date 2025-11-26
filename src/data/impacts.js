@@ -1,16 +1,11 @@
 export const impacts = [
   {
     id: 1,
-    title: "Vice President – Women in Computer Science (WiCSE)",
-    description: "Led initiatives that expanded the club from 250 to 360+ members, organized professional and technical workshops, mentoring circles, resume reviews, and outreach programs. Strengthened community engagement and created opportunities for underrepresented students in CS.",
-    images: [
-      require("./WICSE/flier.png"),
-      require("./WICSE/workshop.png"),
-      require("./WICSE/professionaldevworkshop.png"),
-      require("./WICSE/tabling.png")
-    ],
+    title: "Impact at Citibank – Cloud Migration & Systems Engineering",
+    description: "Core contributor to Citi's global Sanctions Risk Management cloud migration. Successfully migrated 10/20 production microservices to AWS EKS, handled Aurora PostgreSQL migration of 4,200+ database objects, and resolved 65% of all migration defects. Designed an outbox architecture adopted into production, improving reliability and reducing failure points.",
+    images: [],
     link: null,
-    linkLabel: "Workshop Slides"
+    linkLabel: null
   },
   {
     id: 2,
@@ -28,12 +23,26 @@ export const impacts = [
     link: null,
     linkLabel: null
   },
-  {
+
+    {
     id: 4,
-    title: "Impact at Citibank – Cloud Migration & Systems Engineering",
-    description: "Core contributor to Citi's global Sanctions Risk Management cloud migration. Successfully migrated 10/20 production microservices to AWS EKS, handled Aurora PostgreSQL migration of 4,200+ database objects, and resolved 65% of all migration defects. Designed an outbox architecture adopted into production, improving reliability and reducing failure points.",
-    images: [],
-    link: null,
-    linkLabel: null
+    title: "Vice President – Women in Computer Science (WiCSE)",
+    description: "Led initiatives that expanded the club from 250 to 360+ members, organized professional and technical workshops, mentoring circles, resume reviews, and outreach programs. Strengthened community engagement and created opportunities for underrepresented students in CS.",
+    images: [
+      require("./WICSE/flier.png"),
+      require("./WICSE/workshop.png"),
+      require("./WICSE/professionaldevworkshop.png"),
+      require("./WICSE/tabling.png")
+    ],
+    links: [
+      {
+        url: "https://www.canva.com/design/DAGRtdqxDMg/B376VmbNnp_Nn6IvM7V-6Q/edit",
+        label: "Professional Development Workshop"
+      },
+      {
+        url: "https://docs.google.com/presentation/d/1Rq9Vnpt01EH_NwlnR7t2pmtXJv5tJJHGny7RkRvUi5s/edit?usp=sharing",
+        label: "AI Adventure Game Workshop"
+      }
+    ]
   }
 ];
