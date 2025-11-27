@@ -27,6 +27,22 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   if (!project) return null;
 
+  // Convert YouTube URL to embed format
+  const getEmbedUrl = (url) => {
+    if (url.includes('youtu.be/')) {
+      const videoId = url.split('youtu.be/')[1].split('?')[0];
+      return `https://www.youtube.com/embed/${videoId}`;
+    } else if (url.includes('youtube.com/watch')) {
+      const videoId = url.split('v=')[1].split('&')[0];
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+    return url; // Return original URL if not YouTube
+  };
+
+  const isYouTubeUrl = (url) => {
+    return url.includes('youtube.com') || url.includes('youtu.be');
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="xl" scrollBehavior="inside">
       <ModalOverlay bg="blackAlpha.700" backdropFilter="blur(10px)" />
@@ -51,17 +67,29 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
             {/* Video Demo */}
             {project.video && (
               <Box borderRadius="lg" overflow="hidden" boxShadow="md">
-                <video
-                  src={project.video}
-                  controls
-                  style={{
-                    width: '100%',
-                    height: 'auto',
-                    maxHeight: '300px',
-                  }}
-                >
-                  Your browser does not support the video tag.
-                </video>
+                {isYouTubeUrl(project.video) ? (
+                  <iframe
+                    src={getEmbedUrl(project.video)}
+                    width="100%"
+                    height="300"
+                    style={{ border: 'none', borderRadius: '8px' }}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title="Project Video Demo"
+                  />
+                ) : (
+                  <video
+                    src={project.video}
+                    controls
+                    style={{
+                      width: '100%',
+                      height: 'auto',
+                      maxHeight: '300px',
+                    }}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                )}
               </Box>
             )}
 
