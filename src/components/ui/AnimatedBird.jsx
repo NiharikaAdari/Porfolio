@@ -55,7 +55,7 @@ const AnimatedBird = ({
 }) => {
   const [currentState, setCurrentState] = useState(BIRD_STATES.FLY_IN);
   const [currentFrame, setCurrentFrame] = useState(0);
-  const [position, setPosition] = useState({ x: window.innerWidth + 100, y: 50 });
+  const [position, setPosition] = useState({ x: typeof window !== 'undefined' ? window.innerWidth + 100 : 1000, y: 50 });
   const [finalPosition, setFinalPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [hasLanded, setHasLanded] = useState(false);
@@ -78,8 +78,8 @@ const AnimatedBird = ({
         });
       },
       {
-        threshold: 0.3, // Trigger when 30% of projects section is visible
-        rootMargin: '0px'
+        threshold: 0.1, // Lower threshold for mobile (was 0.3)
+        rootMargin: '50px' // Give more margin for mobile detection
       }
     );
 
@@ -100,7 +100,7 @@ const AnimatedBird = ({
 
     // Animate flying to target
     const duration = 2500; // 2.5 seconds flight
-    const startX = window.innerWidth + 100;
+    const startX = Math.max(window.innerWidth + 50, 400); // Ensure reasonable start position
     const startY = targetY; // Start at same Y level as target
     const startTime = Date.now();
 
@@ -190,7 +190,7 @@ const AnimatedBird = ({
       ref={birdRef}
       className={`animated-bird ${currentState}`}
       position="absolute"
-      left={hasLanded ? `${finalPosition.x}px` : `${position.x}px`}
+      left={hasLanded ? `${finalPosition.x}px` : `${Math.min(position.x, window.innerWidth - birdSize)}px`}
       top={hasLanded ? `${finalPosition.y}px` : `${position.y}px`}
       width={`${birdSize}px`}
       height={`${birdSize}px`}
