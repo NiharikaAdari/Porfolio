@@ -18,23 +18,20 @@ const AboutMe = () => {
     {
       title: "🎓 Education",
       content:
-        "Pursuing a degree in Computer Science with a focus on software engineering and data science. Continuously learning and expanding my knowledge through coursework and personal projects.",
-    },
+      "❃ Graduated Summa Cum Laude with a 3.97 GPA in Computer Science from the University of South Florida. \n❃ Served as Vice President of the Women in Computer Science Club (WiCSE), leading community initiatives, mentorship, and technical growth for members. Continuously learning and expanding my knowledge through coursework and personal projects.",    },
     {
       title: "💻 Experience",
       content:
-        "Hands-on experience in full-stack development, from building responsive web applications to designing scalable backend systems. Proficient in modern development practices and agile methodologies.",
+      "❃ Currently a fullstack Software Engineer at Citibank, contributing to large-scale AWS cloud migration efforts. Migrated mission-critical microservices to EKS, modernized 4,200+ database objects for Aurora PostgreSQL, expanded automation suites, and designed production-adopted architectural solutions. \n❃ Previously worked as a SAS2PY Intern, translating SAS pipelines into Python for data analysis workflows and re-implementing statistical procedures such as PROC MEANS for automated descriptive analytics",    },
+    {
+      title: "🔬 Research & Teaching",
+      content:
+"❃ Previously a Research Assistant in USF’s SEES Lab, developing algorithms for specification mining that accelerated pattern identification by 14×. \n❃ Also served as a Teaching Assistant for Data Structures, supporting students with C++ concepts and exam preparation.",
     },
     {
-      title: "🎯 Goals",
+      title: "🌟 Interests & Goals",
       content:
-        "Aspiring to work on innovative projects that solve real-world problems. Passionate about contributing to open source and building technology that makes a positive impact on society.",
-    },
-    {
-      title: "🌟 Interests",
-      content:
-        "Beyond coding, I enjoy exploring new technologies, participating in hackathons, and mentoring fellow developers. Always eager to learn and share knowledge with the community.",
-    },
+  "❃ I’m driven by building human-centered learning tools informed by data science. My focus is on using AI not to shortcut understanding but to strengthen it, creating systems that organize information, surface misconceptions, and guide students through meaningful learning. \n❃ StudyKeet grew out of this mission, a response to how AI was often misused in my classes and a step toward technology that truly supports comprehension, equity, and student confidence. I enjoy exploring how data, structured knowledge, and science-based methods can solve real educational problems and make effective learning accessible to everyone.",    },
   ];
 
   return (
@@ -112,7 +109,7 @@ const AboutMe = () => {
                     >
                       {card.title}
                     </Heading>
-                    <Text color="gray.700" lineHeight="tall">
+                    <Text color="gray.700" lineHeight="tall" whiteSpace="pre-line">
                       {card.content}
                     </Text>
                   </VStack>
