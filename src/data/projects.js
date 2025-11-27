@@ -6,7 +6,7 @@ export const projects = [
     longDescription: "StudyKeet is an intelligent study assistant designed to boost learning outcomes by guiding students through the Feynman Technique—prompting users to explain concepts in simple terms, then generating precise, personalized feedback. The system integrates Retrieval-Augmented Generation (RAG), embeddings-based search, and LLMs to assess conceptual understanding and highlight gaps in knowledge. Built with React, Node.js, Python, and modern AI tooling, StudyKeet demonstrates full-stack engineering, AI/ML integration, prompt engineering, and user-centered learning design.",
     skills: ["React", "Node.js", "RAG", "LLMs", "AI/ML Integration", "Python", "Full=Stack Development", "Vector Databases", "Prompt Engineering", "REST APIs"],
     images: [],
-    video: require('./Studykeet/studykeet showcase.mp4'),
+    video: require('./Studykeet/DemoStudykeet.mp4'),
     githubLink: "https://github.com/NiharikaAdari/studykeetapp",
     liveLink: "https://www.linkedin.com/posts/niharika-adari-9b5519253_im-happy-to-share-this-ai-powered-study-activity-7238994467666497538-oO59?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD6L_1kB4JOOOivUFQnxgcKZLeiaXrjlK84"
   },
