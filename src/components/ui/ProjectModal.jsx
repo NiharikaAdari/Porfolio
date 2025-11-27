@@ -148,7 +148,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
               <Text fontWeight="bold" color="teal.600" mb={2}>
                 Description
               </Text>
-              <Text color="gray.700" lineHeight="tall">
+              <Text color="gray.700" lineHeight="tall" whiteSpace="pre-line">
                 {project.longDescription}
               </Text>
             </Box>
