@@ -73,7 +73,7 @@ const Navbar = () => {
     <Box
       position="sticky"
       top={0}
-      zIndex={100}
+      zIndex={1100}
       bg="gray.800"
       boxShadow="dark-lg"
     >

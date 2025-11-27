@@ -56,6 +56,7 @@ const AnimatedBird = ({
   const [currentState, setCurrentState] = useState(BIRD_STATES.FLY_IN);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [position, setPosition] = useState({ x: window.innerWidth + 100, y: 50 });
+  const [finalPosition, setFinalPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [hasLanded, setHasLanded] = useState(false);
   const birdRef = useRef(null);
@@ -93,12 +94,9 @@ const AnimatedBird = ({
   const flyToTarget = () => {
     if (!targetElement || !projectsSection) return;
 
-    const targetRect = targetElement.getBoundingClientRect();
-    const projectsRect = projectsSection.getBoundingClientRect();
-    
-    // Calculate position relative to the projects section container
-    const targetX = (targetRect.left - projectsRect.left) + 100; // Move more left, away from "Featured" badge
-    const targetY = (targetRect.top - projectsRect.top) -105; // Fixed position above the card
+    // Simple fixed position on the card - no complex calculations
+    const targetX = 50; // Fixed position from left of card
+    const targetY = -85; // Fixed position higher above card
 
     // Animate flying to target
     const duration = 2500; // 2.5 seconds flight
@@ -121,9 +119,10 @@ const AnimatedBird = ({
       if (progress < 1) {
         animationRef.current = requestAnimationFrame(animateFlight);
       } else {
-        // Landing sequence
+        // Landing sequence - use fixed position relative to card
         setCurrentState(BIRD_STATES.LANDING);
         setCurrentFrame(0);
+        setFinalPosition({ x: targetX, y: targetY });
         setTimeout(() => {
           setCurrentState(BIRD_STATES.PERCH);
           setHasLanded(true);
@@ -166,6 +165,15 @@ const AnimatedBird = ({
     };
   }, []);
 
+  // Update bird position on window resize after landing - now using fixed positions
+  useEffect(() => {
+    if (!hasLanded) return;
+
+    // Bird uses fixed position relative to its parent card container
+    // No need to recalculate on resize since it's positioned relative to the card
+    setFinalPosition({ x: 50, y: -85 });
+  }, [hasLanded]);
+
   if (!isVisible) return null;
 
   const animation = ANIMATIONS[currentState];
@@ -182,8 +190,8 @@ const AnimatedBird = ({
       ref={birdRef}
       className={`animated-bird ${currentState}`}
       position="absolute"
-      left={`${position.x}px`}
-      top={`${position.y}px`}
+      left={hasLanded ? `${finalPosition.x}px` : `${position.x}px`}
+      top={hasLanded ? `${finalPosition.y}px` : `${position.y}px`}
       width={`${birdSize}px`}
       height={`${birdSize}px`}
       backgroundImage={`url('${birdSprite}')`}
@@ -193,8 +201,7 @@ const AnimatedBird = ({
       zIndex={1000}
       pointerEvents="none"
       style={{
-        transition: hasLanded ? 'none' : 'transform 0.1s ease-out',
-        transform: hasLanded ? 'none' : `rotate(${Math.atan2(position.y - 50, position.x + 100) * 180 / Math.PI}deg)`
+        transition: hasLanded ? 'none' : 'transform 0.1s ease-out'
       }}
     />
   );

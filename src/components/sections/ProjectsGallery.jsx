@@ -123,6 +123,14 @@ const ProjectsGallery = () => {
                       ⭐ Featured
                     </Box>
                   )}
+                  {/* Bird positioned relative to this specific card */}
+                  {isStudyKeet && showBird && (
+                    <AnimatedBird
+                      targetElement={studyKeetCardRef.current}
+                      projectsSection={projectsSectionRef.current}
+                      birdSize={100}
+                    />
+                  )}
                 </MotionBox>
               );
             })}
@@ -135,15 +143,6 @@ const ProjectsGallery = () => {
         onClose={onClose}
         project={selectedProject}
       />
-
-      {/* Animated Bird */}
-      {showBird && studyKeetCardRef.current && projectsSectionRef.current && (
-        <AnimatedBird
-          targetElement={studyKeetCardRef.current}
-          projectsSection={projectsSectionRef.current}
-          birdSize={125}
-        />
-      )}
         </Box>
       </Box>
     </Box>
