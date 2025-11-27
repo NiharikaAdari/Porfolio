@@ -16,25 +16,36 @@ import { FaGithub, FaExternalLinkAlt, FaLinkedin } from "react-icons/fa";
 
 const MotionBox = motion(Box);
 
-const ProjectCard = ({ project, onClick }) => {
+const ProjectCard = ({ project, onClick, isHighlighted = false }) => {
+  const cardBg = isHighlighted ? "yellow.200" : "cyan.300";
+  const cardHoverBg = isHighlighted ? "yellow.300" : "cyan.400";
+  const borderColor = isHighlighted ? "yellow.500" : "transparent";
+
   return (
     <MotionBox
-      bg="cyan.300"
+      bg={cardBg}
       borderRadius={30}
       p={6}
-      boxShadow="0 10px 30px rgba(0,0,0,0.6), 0 0 18px rgba(255,255,255,0.02)"
+      border={`3px solid ${borderColor}`}
+      boxShadow={isHighlighted 
+        ? "0 10px 30px rgba(255,193,7,0.4), 0 0 25px rgba(255,193,7,0.3)" 
+        : "0 10px 30px rgba(0,0,0,0.6), 0 0 18px rgba(255,255,255,0.02)"
+      }
       cursor="pointer"
       onClick={() => onClick(project)}
       whileHover={{ 
         scale: 1.03, 
-        boxShadow: "0 18px 36px rgba(0,0,0,0.7)" 
+        boxShadow: isHighlighted
+          ? "0 18px 36px rgba(255,193,7,0.5), 0 0 30px rgba(255,193,7,0.4)"
+          : "0 18px 36px rgba(0,0,0,0.7)" 
       }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.2 }}
       minH="280px"
       display="flex"
       flexDirection="column"
-      _hover={{ bg: "cyan.400" }}
+      _hover={{ bg: cardHoverBg }}
+      position="relative"
     >
       <VStack align="stretch" spacing={4} flex={1}>
         {/* Image Preview */}

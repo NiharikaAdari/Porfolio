@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Box,
   Container,
@@ -11,6 +11,7 @@ import {
 import { motion } from "framer-motion";
 import ProjectCard from "../ui/ProjectCard";
 import ProjectModal from "../ui/ProjectModal";
+import AnimatedBird from "../ui/AnimatedBird";
 import { projects } from "../../data/projects";
 
 const MotionBox = motion(Box);
@@ -18,14 +19,28 @@ const MotionBox = motion(Box);
 const ProjectsGallery = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectedProject, setSelectedProject] = useState(null);
+  const studyKeetCardRef = useRef(null);
+  const projectsSectionRef = useRef(null);
+  const [showBird, setShowBird] = useState(false);
 
   const handleProjectClick = (project) => {
     setSelectedProject(project);
     onOpen();
   };
 
+  // Show bird when component is ready
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowBird(true);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Find StudyKeet project (should be first one)
+  const studyKeetProject = projects.find(p => p.title.includes("StudyKeet")) || projects[0];
+
   return (
-    <Box id="projects" py={20} display="flex" justifyContent="center" alignItems="center" mt={16} pt={5} pb={5}>
+    <Box id="projects" py={20} display="flex" justifyContent="center" alignItems="center" mt={16} pt={5} pb={5} ref={projectsSectionRef} position="relative">
       <Box bg="teal.300" borderRadius={36} p={4} maxW="100%" display="flex" justifyContent="center">
         <Box
           bg="gray.800"
@@ -73,20 +88,44 @@ const ProjectsGallery = () => {
             columns={{ base: 1, md: 2, lg: 3 }}
             spacing={8}
           >
-            {projects.map((project, index) => (
-              <MotionBox
-                key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <ProjectCard
-                  project={project}
-                  onClick={handleProjectClick}
-                />
-              </MotionBox>
-            ))}
+            {projects.map((project, index) => {
+              const isStudyKeet = project.title.includes("StudyKeet");
+              return (
+                <MotionBox
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  ref={isStudyKeet ? studyKeetCardRef : null}
+                  position="relative"
+                >
+                  <ProjectCard
+                    project={project}
+                    onClick={handleProjectClick}
+                    isHighlighted={isStudyKeet}
+                  />
+                  {isStudyKeet && (
+                    <Box
+                      position="absolute"
+                      top="-10px"
+                      right="-10px"
+                      bg="yellow.400"
+                      color="gray.800"
+                      px={3}
+                      py={1}
+                      borderRadius="full"
+                      fontSize="sm"
+                      fontWeight="bold"
+                      boxShadow="lg"
+                      zIndex={10}
+                    >
+                      ⭐ Featured
+                    </Box>
+                  )}
+                </MotionBox>
+              );
+            })}
           </SimpleGrid>
         </VStack>
         </Container>
@@ -96,6 +135,15 @@ const ProjectsGallery = () => {
         onClose={onClose}
         project={selectedProject}
       />
+
+      {/* Animated Bird */}
+      {showBird && studyKeetCardRef.current && projectsSectionRef.current && (
+        <AnimatedBird
+          targetElement={studyKeetCardRef.current}
+          projectsSection={projectsSectionRef.current}
+          birdSize={125}
+        />
+      )}
         </Box>
       </Box>
     </Box>
