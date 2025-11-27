@@ -5,3 +5,10 @@ dist/
 .DS_Store
 out/
 build/
+
+# Large video files (>100MB)
+src/data/Studykeet/DemoStudykeet.mp4
+src/data/Studykeet/studykeet\ showcase.mp4
+
+# StudyKeet application folder
+studyKeetApplication/
