@@ -28,12 +28,15 @@ const SkillCard = ({ category, skills, colorScheme, icon }) => {
       _hover={{ bg: color.hover }}
     >
       <VStack align="stretch" spacing={4}>
-        <HStack>
-          {icon && <Icon as={icon} boxSize={6} color={color.heading} />}
+        <HStack spacing={3} align="flex-start">
+          {icon && <Icon as={icon} boxSize={6} color={color.heading} flexShrink={0} />}
           <Text
-            fontSize="lg"
+            fontSize={{ base: "md", md: "lg" }}
             fontWeight="bold"
             color={color.heading}
+            wordBreak="break-word"
+            hyphens="auto"
+            lineHeight="short"
           >
             {category}
           </Text>

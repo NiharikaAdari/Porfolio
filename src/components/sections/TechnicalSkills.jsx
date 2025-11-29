@@ -16,8 +16,8 @@ const MotionBox = motion(Box);
 
 const categoryConfig = {
   "Programming Languages": { colorScheme: "teal", icon: FaCode },
-  "Libraries/Frameworks": { colorScheme: "cyan", icon: FaLayerGroup },
-  "Tools/Platforms": { colorScheme: "green", icon: FaTools },
+  "Libraries/ Frameworks": { colorScheme: "cyan", icon: FaLayerGroup },
+  "Tools/ Platforms": { colorScheme: "green", icon: FaTools },
   "Data Science & AI": { colorScheme: "teal", icon: FaChartBar },
 };
 
