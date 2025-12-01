@@ -1,6 +1,6 @@
 # CS Portfolio Website
 
-A modern, responsive portfolio website built with React and ChakraUI, inspired by the StudyKeet application design aesthetic.
+A modern, responsive portfolio website built with React and ChakraUI.
 
 ## Features
 
@@ -111,14 +111,6 @@ The built application can be deployed to:
 - Vercel
 - Any static hosting service
 
-## Design Inspiration
-
-This portfolio is inspired by the StudyKeet application design, featuring:
-- Animated diagonal stripe background
-- Card-based layouts with rounded corners
-- Gradient text headings
-- Smooth hover animations
-- Teal/cyan color palette
 
 ## License
 
