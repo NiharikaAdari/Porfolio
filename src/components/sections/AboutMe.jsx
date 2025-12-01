@@ -19,16 +19,15 @@ const AboutMe = () => {
       title: "🎓 Education",
       content:
       "❃ Graduated Summa Cum Laude with a 3.97 GPA in Computer Science from the University of South Florida. \n❃ Served as Vice President of the Women in Computer Science Club (WiCSE), leading community initiatives, mentorship, and technical growth for members. Continuously learning and expanding my knowledge through coursework and personal projects.",    },
+     {
+      title: "🔬 Research & Teaching",
+      content:
+"❃ Previously a Research Assistant in USF’s SEES Lab, developing algorithms for specification mining that accelerated pattern identification by 14×. \n❃ Also served as a Teaching Assistant for Data Structures, supporting students with C++ concepts and exam preparation.",},
     {
       title: "💻 Experience",
       content:
       "❃ Currently a fullstack Software Engineer at Citibank, contributing to large-scale AWS cloud migration efforts. Migrated mission-critical microservices to EKS, modernized 4,200+ database objects for Aurora PostgreSQL, expanded automation suites, and designed production-adopted architectural solutions. \n❃  Previously worked as an LLM Engineer Intern at SAS2PY, where I developed and containerized an  LLM chatbot service and engineered Retrieval-Augmented Generation (RAG) modules to ground private model outputs. Translated SAS pipelines into Python for data analysis workflows and re-implementing statistical procedures (e.g., PROC MEANS) for automated descriptive analytics.",    },
-    {
-      title: "🔬 Research & Teaching",
-      content:
-"❃ Previously a Research Assistant in USF’s SEES Lab, developing algorithms for specification mining that accelerated pattern identification by 14×. \n❃ Also served as a Teaching Assistant for Data Structures, supporting students with C++ concepts and exam preparation.",
-    },
-    {
+   {
       title: "🌟 Interests & Goals",
       content:
   "❃ I’m driven by building human-centered learning tools informed by data science. My focus is on using AI not to shortcut understanding but to strengthen it, creating systems that organize information, surface misconceptions, and guide students through meaningful learning. \n❃ StudyKeet grew out of this mission, a response to how AI was often misused in my classes and a step toward technology that truly supports comprehension, equity, and student confidence. I enjoy exploring how data, structured knowledge, and science-based methods can solve real educational problems and make effective learning accessible to everyone.",    },
