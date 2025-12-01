@@ -22,7 +22,7 @@ const AboutMe = () => {
     {
       title: "💻 Experience",
       content:
-      "❃ Currently a fullstack Software Engineer at Citibank, contributing to large-scale AWS cloud migration efforts. Migrated mission-critical microservices to EKS, modernized 4,200+ database objects for Aurora PostgreSQL, expanded automation suites, and designed production-adopted architectural solutions. \n❃ Previously worked as a SAS2PY Intern, translating SAS pipelines into Python for data analysis workflows and re-implementing statistical procedures such as PROC MEANS for automated descriptive analytics",    },
+      "❃ Currently a fullstack Software Engineer at Citibank, contributing to large-scale AWS cloud migration efforts. Migrated mission-critical microservices to EKS, modernized 4,200+ database objects for Aurora PostgreSQL, expanded automation suites, and designed production-adopted architectural solutions. \n❃  Previously worked as an LLM Engineer Intern at SAS2PY, where I developed and containerized an  LLM chatbot service and engineered Retrieval-Augmented Generation (RAG) modules to ground private model outputs. Translated SAS pipelines into Python for data analysis workflows and re-implementing statistical procedures (e.g., PROC MEANS) for automated descriptive analytics.",    },
     {
       title: "🔬 Research & Teaching",
       content:
